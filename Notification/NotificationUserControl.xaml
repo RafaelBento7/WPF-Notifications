@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Notification.NotificationUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="80" Width="Auto" MaxWidth="400" MinWidth="300" Foreground="#fafafa">
+    
+    <Border CornerRadius="5" Background="#A5DC86" Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Icons/checked.png" Width="30" Height="30" Margin="10,0,0,0" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+            <materialDesign:PackIcon Kind="CheckCircleOutline" Width="30" Height="30" VerticalAlignment="Center" Visibility="Collapsed"/>
+            
+            <TextBlock  Grid.Column="1" Margin="10" x:Name="messageText" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left"
+                        FontWeight="SemiBold" FontSize="14" Text="This is a notification"/>
+            <ProgressBar Value="50" Maximum="100" Minimum="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Height="5" x:Name="pbTimer">
+                <ProgressBar.Style>
+                    <Style TargetType="ProgressBar">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ProgressBar">
+                                    <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
+                                        <Border x:Name="PART_Track" CornerRadius="0,0,0,10"/>
+                                        <Border x:Name="PART_Indicator" CornerRadius="0,0,0,5" Background="#fafafa" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ProgressBar.Style>
+            </ProgressBar>
+        </Grid>
+    </Border>
+</UserControl>
